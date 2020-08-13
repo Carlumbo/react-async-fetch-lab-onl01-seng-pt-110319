@@ -1,27 +1,26 @@
-// create your App component here
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 class App extends Component {
+  
+  
   state = {
     spacePeeps: []
   }
   
-   render() {
+  
+  render() {
     return (
-      
       <div>
-        {this.state.spacePeeps.map((astronaut, id) => <h2 key={id}>{astronaut.name}</h2>)}
+     {this.state.spacePeeps.map((astronaut, id) => <h1 key={id}>{astronaut.name}</h1>)}
       </div>
-      )
+     )
   }
   
-  
- componentDidMount() {
+  componentDidMount() {
     fetch('http://api.open-notify.org/astros.json')
-      .then(response => response.json())
+      .then(res => res.json())
       .then(({people}) => this.setState({ spacePeeps: people }))
-
   }
-
+  
 }
- App
+export default App
